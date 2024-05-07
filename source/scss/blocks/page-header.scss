@@ -48,6 +48,64 @@
   justify-content: space-between;
 }
 
+.page-loaded {
+  .page-header__logo {
+    animation: showLogo 0.6s cubic-bezier(0.5, 0.8, 0.5, 0.9) forwards;
+  }
+
+  .page-header__nav {
+    opacity: 1;
+  }
+
+  .page-header__toggler {
+    animation: showPageToggler 0.6s cubic-bezier(0.5, 0.8, 0.5, 0.9) forwards;
+  }
+
+  .page-header__menu {
+    a.active::after {
+      animation: showLink 0.6s cubic-bezier(0.5, 0.8, 0.5, 0.9) forwards;
+      left: 0;
+      right: unset;
+    }
+  }
+}
+
+@keyframes showPageToggler {
+  0% {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes showLogo {
+  0% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes showLink {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
 .page-header__logo {
   @include hover;
   position: relative;
@@ -57,6 +115,9 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity .6s, transform .6s;
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -103,6 +164,7 @@
   background-color: $c-light;
   border-radius: 50%;
   z-index: 1;
+  transition: opacity .6s, transform .6s;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: block;
@@ -152,6 +214,8 @@
 .page-header__nav {
   display: flex;
   align-items: center;
+  opacity: 0;
+  transition: opacity .6s;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
@@ -277,14 +341,10 @@
       transition: opacity 0.3s, width 0.3s;
 
       @media (max-width: $tablet) and (orientation: portrait) {
-        left: 0;
-        right: 0;
         background-color: $c-dark;
       }
 
       @media (max-width: $mobile) and (orientation: landscape) {
-        left: 0;
-        right: 0;
         background-color: $c-dark;
       }
     }

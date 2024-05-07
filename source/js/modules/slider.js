@@ -1,6 +1,8 @@
 import Swiper from "swiper";
+import StoryState from './story-state'
 
 export default () => {
+  const storyState = new StoryState();
   let storySlider;
   let sliderContainer = document.getElementById(`story`);
   sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
@@ -15,8 +17,11 @@ export default () => {
         keyboard: {
           enabled: true
         },
+        watchSlidesVisibility: true,
         on: {
           slideChange: () => {
+            storyState.changeStorySlide(storySlider.activeIndex)
+
             if (storySlider.activeIndex === 0 || storySlider.activeIndex === 1) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
             } else if (storySlider.activeIndex === 2 || storySlider.activeIndex === 3) {
@@ -36,6 +41,7 @@ export default () => {
       });
     } else {
       storySlider = new Swiper(`.js-slider`, {
+        watchSlidesVisibility: true,
         slidesPerView: 2,
         slidesPerGroup: 2,
         pagination: {
@@ -51,6 +57,8 @@ export default () => {
         },
         on: {
           slideChange: () => {
+            storyState.changeStorySlide(storySlider.activeIndex)
+
             if (storySlider.activeIndex === 0) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg")`;
             } else if (storySlider.activeIndex === 2) {

@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import StoryState from './story-state'
 
 export default class FullPageScroll {
   constructor() {
@@ -12,6 +13,7 @@ export default class FullPageScroll {
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
+    this.storyState = new StoryState();
   }
 
   init() {
@@ -46,6 +48,7 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
+    this.storyState.changeStorySlide(0);
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();

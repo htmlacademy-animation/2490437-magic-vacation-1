@@ -57,3 +57,6 @@ git clone SSH-адрес_вашего_форка
 [travis-url]: https://travis-ci.com/htmlacademy-animation/2490437-magic-vacation-1
 [dependency-image]: https://david-dm.org/htmlacademy-animation/2490437-magic-vacation-1/dev-status.svg?style=flat-square
 [dependency-url]: https://david-dm.org/htmlacademy-animation/2490437-magic-vacation-1?type=dev
+
+
+16.13.0

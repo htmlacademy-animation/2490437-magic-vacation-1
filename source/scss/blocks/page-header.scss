@@ -19,6 +19,28 @@
   }
 }
 
+[data-story-slide='2']  {
+  .page-header__menu {
+    a {
+      &:hover,
+      &:focus {
+        color: $c-light-blue;
+      }
+    }
+  }
+}
+
+[data-story-slide='4']  {
+  .page-header__menu {
+    a {
+      &:hover,
+      &:focus {
+        color: $c-blue;
+      }
+    }
+  }
+}
+
 .page-header__wrapper {
   @include container;
   display: flex;
@@ -283,7 +305,7 @@
         right: unset;
         opacity: 1;
         width: 100%;
-        background-color: $c-purple;
+        background-color: currentColor;
       }
     }
   }

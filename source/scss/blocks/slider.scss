@@ -1,3 +1,12 @@
+.screen--story.active {
+  .swiper-slide-visible {
+    .slider__item-text {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
 .slider {
   position: relative;
   flex-grow: 1;
@@ -38,6 +47,7 @@
 
   &:nth-child(even) {
     .slider__item-text {
+      transition-delay: 1.2s;
       align-self: flex-end;
 
       @media (max-width: $mobile) and (orientation: landscape) {
@@ -96,6 +106,10 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 1s, transform 1s;
+  transition-delay: .6s;
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
@@ -149,12 +163,65 @@
   }
 }
 
+[data-story-slide='2']  {
+  .slider__control {
+    color: $c-light-blue;
+
+    &:hover {
+      color: $c-light-blue;
+    }
+
+    &:focus {
+      color: $c-light-blue;
+
+      &::before {
+        border-color: $c-light-blue;
+      }
+    }
+
+    &:active,
+    &:active:focus {
+      &::before {
+        background-color: $c-light-blue;
+        border-color: $c-light-blue;
+      }
+    }
+  }
+}
+
+[data-story-slide='4']  {
+  .slider__control {
+    color: $c-blue;
+
+    &:hover {
+      color: $c-blue;
+    }
+
+    &:focus {
+      color: $c-blue;
+
+      &::before {
+        border-color: $c-blue;
+      }
+    }
+
+    &:active,
+    &:active:focus {
+      &::before {
+        background-color: $c-blue;
+        border-color: $c-blue;
+      }
+    }
+  }
+}
+
 .slider__control {
   @include btn-reset;
   position: relative;
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+  transition: color .3s;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -170,6 +237,7 @@
     border: 2px solid $c-light;
     border-radius: 50%;
     z-index: -1;
+    transition: color .3s, background-color 0.3s, border-color 0.3s;
   }
 
   svg {

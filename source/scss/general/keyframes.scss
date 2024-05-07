@@ -1,0 +1,50 @@
+@keyframes MessageFormFieldSlideInRight {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+    /*width: calc(100% - 21rem);
+
+    @media (min-width: $stop-scaling) {
+      width: calc(100% - 210px);
+    }
+
+    @media (orientation: portrait) {
+      width: calc(100% - 5rem);
+    }
+
+    @media (max-width: $tablet) and (orientation: landscape) {
+      width: calc(100% - 9rem);
+    }
+
+    @media (max-width: $mobile) and (orientation: landscape) {
+      width: calc(100% - 5rem);
+    }*/
+  }
+}
+
+@keyframes IntroMessageFadeSlideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes SocialLinkFadeSlideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}

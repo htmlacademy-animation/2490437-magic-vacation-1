@@ -1,3 +1,5 @@
+@import "../../scss/general/keyframes";
+
 .form {
   position: relative;
   display: flex;
@@ -31,29 +33,11 @@
 
 #message-form {
   .form__field {
-    position: absolute;
-    bottom: 0;
-    right: 16rem;
-    transition: opacity 0.3s, width 0.3s;
-    animation: FadeInFromRight 0.6s forwards;
-
-    @media (orientation: portrait) {
-      right: 16rem;
-    }
-
-    @media (max-width: $tablet) and (orientation: landscape) {
-      right: 18rem;
-    }
-
-    @media (max-width: $mobile) and (orientation: landscape) {
-      right: 16rem;
-    }
-  }
-
-  .form__button {
-    position: absolute;
-    bottom: 0;
     right: 0;
+    transition: opacity 0.3s, width 0.3s;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    animation: MessageFormFieldSlideInRight 0.6s forwards;
   }
 }
 
@@ -61,6 +45,7 @@
   flex: none;
   margin-right: 3rem;
   padding: 0 5.6rem;
+  width: calc(100% - 21rem);
   height: 6rem;
   text-transform: uppercase;
   font: inherit;
@@ -105,33 +90,9 @@
   }
 }
 
-@keyframes FadeInFromRight {
-  0% {
-    width: 0;
-  }
-
-  100% {
-    width: calc(100% - 21rem);
-
-    @media (min-width: $stop-scaling) {
-      width: calc(100% - 210px);
-    }
-
-    @media (orientation: portrait) {
-      width: calc(100% - 5rem);
-    }
-
-    @media (max-width: $tablet) and (orientation: landscape) {
-      width: calc(100% - 9rem);
-    }
-
-    @media (max-width: $mobile) and (orientation: landscape) {
-      width: calc(100% - 5rem);
-    }
-  }
-}
-
 .form__button {
+  flex-grow: 1;
+
   @media (orientation: portrait) {
     position: relative;
     flex: none;

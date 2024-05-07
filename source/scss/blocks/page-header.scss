@@ -1,3 +1,5 @@
+@import "../../scss/general/keyframes";
+
 .page-header {
   position: fixed;
   top: 0;
@@ -50,7 +52,7 @@
 
 .page-loaded {
   .page-header__logo {
-    animation: showLogo 0.6s cubic-bezier(0.5, 0.8, 0.5, 0.9) forwards;
+    animation: LogoFadeSlideInLeft 0.6s cubic-bezier(0.5, 0.8, 0.5, 0.9) forwards;
   }
 
   .page-header__nav {
@@ -58,51 +60,15 @@
   }
 
   .page-header__toggler {
-    animation: showPageToggler 0.6s cubic-bezier(0.5, 0.8, 0.5, 0.9) forwards;
+    animation: PageTogglerFadeSlideInRight 0.6s cubic-bezier(0.5, 0.8, 0.5, 0.9) forwards;
   }
 
   .page-header__menu {
     a.active::after {
-      animation: showLink 0.6s cubic-bezier(0.5, 0.8, 0.5, 0.9) forwards;
+      animation: LinkFadeSlideIn 0.6s cubic-bezier(0.5, 0.8, 0.5, 0.9) forwards;
       left: 0;
       right: unset;
     }
-  }
-}
-
-@keyframes showPageToggler {
-  0% {
-    transform: translateX(20px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes showLogo {
-  0% {
-    transform: translateX(-20px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes showLink {
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-
-  100% {
-    width: 100%;
-    opacity: 1;
   }
 }
 

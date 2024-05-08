@@ -1,3 +1,5 @@
+@import "../../scss/general/keyframes";
+
 .social-block {
   position: relative;
 
@@ -8,7 +10,7 @@
     }
 
     .social-block__link {
-      animation-name: OnSocialLinkAppear;
+      animation-name: SocialLinkFadeSlideInUp;
     }
   }
 }
@@ -109,6 +111,12 @@
   }
 }
 
+.page-loaded {
+  .social-block__toggler::before {
+    animation: SocialTogglerBounceIn 0.6s cubic-bezier(0.5, 0.8, 0.5, 0.9) forwards;
+  }
+}
+
 .social-block__toggler {
   @include btn-reset;
   position: relative;
@@ -136,7 +144,8 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
-    transition: width .3s, height 0.3s;
+    transition: width .3s, height 0.3s, transform .6s, opacity .6s;
+    opacity: 0;
   }
 
   svg {
@@ -352,17 +361,5 @@
         height: 10px;
       }
     }
-  }
-}
-
-@keyframes OnSocialLinkAppear {
-  0% {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-
-  100% {
-    opacity: 100%;
-    transform: translateY(0);
   }
 }

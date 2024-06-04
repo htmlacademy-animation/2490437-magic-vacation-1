@@ -55,6 +55,7 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
+    // Задержка смены классов для показа экрана историй при выполнении анимации заполнения фона на экране призов
     if (this.screenElements[this.activeScreen].id === 'prizes') {
       setTimeout(() => {
         this.screenElements.forEach((screen) => {

@@ -299,6 +299,7 @@
 }
 
 .screen--story {
+  z-index: 2;
   background-color: $c-dark;
   background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"), url("../img/slide3.jpg"), url("../img/slide4.jpg");
   background-repeat: no-repeat;
@@ -313,6 +314,19 @@
 
 .screen--prizes {
   background-color: $c-dark;
+}
+
+.screen--prizes.active {
+  .prizes {
+    opacity: 1;
+    transition: opacity .6s 1.2s;
+  }
+
+  ~ .screen--3d-background {
+    z-index: 3;
+    transform: translateY(0);
+    opacity: 0;
+  }
 }
 
 .screen--game {
@@ -363,4 +377,16 @@
 
 .screen--rules {
   background-color: $c-dark;
+}
+
+.screen--3d-background {
+  background-color: $c-dark;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transform: translateY(100%);
+  transition: transform .6s, opacity .6s 1.2s;
 }
